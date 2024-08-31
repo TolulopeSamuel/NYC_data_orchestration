@@ -7,7 +7,7 @@ The objectivec of the project are as follows:
 4. Create a public user with limited privileges to enable public access to the NYC data warehouse
 5. Integrate version control and maintain a cloud-hosted repository of your codebase to facilitate collaboration
 
-Tools Used
+Tools Used:
 Docker
 Snowflake
 VisualStudio
@@ -15,7 +15,8 @@ Python, SQL, Pandas
 ApacheAirflow
 SQLAlchemy
 
-Structure of the Warehouse
+Structure of the Warehouse:
+
 Warehouse Name: nyc_pipeline
 Schemas
 STG
@@ -24,7 +25,8 @@ STG
 PRD
   Tables: agency_summary, payroll_summary. title_summary
 
-Steps
+Steps:
+
 Create python modules with functions for the data extraction, cleaning and loading phases
 Create DAG scripts with task for each function in the modules
 Mount the folder on a Docker container built with apache-airflow installed to enable running the DAG scripts with airflow scheduler
