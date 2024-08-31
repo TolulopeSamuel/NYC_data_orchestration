@@ -1,0 +1,22 @@
+[2024-08-30T01:02:34.940+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-30T01:02:34.975+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nyc_dag.stg_load manual__2024-08-30T01:02:24.213006+00:00 [queued]>
+[2024-08-30T01:02:34.991+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nyc_dag.stg_load manual__2024-08-30T01:02:24.213006+00:00 [queued]>
+[2024-08-30T01:02:34.993+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 0
+[2024-08-30T01:02:35.016+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): stg_load> on 2024-08-30 01:02:24.213006+00:00
+[2024-08-30T01:02:35.028+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1296) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-30T01:02:35.030+0000] {standard_task_runner.py:72} INFO - Started process 1298 to run task
+[2024-08-30T01:02:35.031+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nyc_dag', 'stg_load', 'manual__2024-08-30T01:02:24.213006+00:00', '--job-id', '83', '--raw', '--subdir', 'DAGS_FOLDER/nyc_dag_script.py', '--cfg-path', '/tmp/tmpgp_ktcn3']
+[2024-08-30T01:02:35.034+0000] {standard_task_runner.py:105} INFO - Job 83: Subtask stg_load
+[2024-08-30T01:02:35.136+0000] {task_command.py:467} INFO - Running <TaskInstance: nyc_dag.stg_load manual__2024-08-30T01:02:24.213006+00:00 [running]> on host c8a3469a5a87
+[2024-08-30T01:02:35.302+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='tolutosin16@gmail.org' AIRFLOW_CTX_DAG_OWNER='tolu_samuel' AIRFLOW_CTX_DAG_ID='nyc_dag' AIRFLOW_CTX_TASK_ID='stg_load' AIRFLOW_CTX_EXECUTION_DATE='2024-08-30T01:02:24.213006+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-30T01:02:24.213006+00:00'
+[2024-08-30T01:02:35.304+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-30T01:02:35.373+0000] {logging_mixin.py:190} INFO - All data extracted successfully
+[2024-08-30T01:02:35.388+0000] {logging_mixin.py:190} INFO - An error occurred during cleaning: Cannot save file into a non-existent directory: '.dags/raw_files'
+[2024-08-30T01:02:35.389+0000] {logging_mixin.py:190} INFO - run_cleaning() did not return a valid file path. Exiting the load process.
+[2024-08-30T01:02:35.390+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-08-30T01:02:35.406+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-30T01:02:35.407+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=nyc_dag, task_id=stg_load, run_id=manual__2024-08-30T01:02:24.213006+00:00, execution_date=20240830T010224, start_date=20240830T010234, end_date=20240830T010235
+[2024-08-30T01:02:35.489+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-30T01:02:35.504+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

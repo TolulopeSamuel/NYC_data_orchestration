@@ -1,0 +1,25 @@
+[2024-08-30T23:04:38.775+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-30T23:04:38.800+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nyc_dag.prd_load manual__2024-08-30T23:04:26.080768+00:00 [queued]>
+[2024-08-30T23:04:38.815+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nyc_dag.prd_load manual__2024-08-30T23:04:26.080768+00:00 [queued]>
+[2024-08-30T23:04:38.817+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 0
+[2024-08-30T23:04:38.837+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): prd_load> on 2024-08-30 23:04:26.080768+00:00
+[2024-08-30T23:04:38.848+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=3036) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-30T23:04:38.850+0000] {standard_task_runner.py:72} INFO - Started process 3038 to run task
+[2024-08-30T23:04:38.852+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nyc_dag', 'prd_load', 'manual__2024-08-30T23:04:26.080768+00:00', '--job-id', '243', '--raw', '--subdir', 'DAGS_FOLDER/nyc_dag_script.py', '--cfg-path', '/tmp/tmp94kl_mrx']
+[2024-08-30T23:04:38.855+0000] {standard_task_runner.py:105} INFO - Job 243: Subtask prd_load
+[2024-08-30T23:04:38.942+0000] {task_command.py:467} INFO - Running <TaskInstance: nyc_dag.prd_load manual__2024-08-30T23:04:26.080768+00:00 [running]> on host 107c7aa6860c
+[2024-08-30T23:04:39.108+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='tolutosin16@gmail.org' AIRFLOW_CTX_DAG_OWNER='tolu_samuel' AIRFLOW_CTX_DAG_ID='nyc_dag' AIRFLOW_CTX_TASK_ID='prd_load' AIRFLOW_CTX_EXECUTION_DATE='2024-08-30T23:04:26.080768+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-30T23:04:26.080768+00:00'
+[2024-08-30T23:04:39.110+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-30T23:04:39.139+0000] {connection.py:414} INFO - Snowflake Connector for Python Version: 3.12.0, Python Version: 3.12.5, Platform: Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[2024-08-30T23:04:39.142+0000] {connection.py:1187} INFO - Connecting to GLOBAL Snowflake domain
+[2024-08-30T23:04:39.143+0000] {connection.py:1268} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-08-30T23:04:39.445+0000] {logging_mixin.py:190} INFO - An error occurred during loading to production: (snowflake.connector.errors.DatabaseError) 250001 (08001): None: Failed to connect to DB: @mteopxr-yu26234.snowflakecomputing.com:443. Your user account has been temporarily locked due to too many failed attempts. Try again after 15 minutes or contact your account administrator for assistance. For more information about this error, go to https://community.snowflake.com/s/error-your-user-login-has-been-locked.
+(Background on this error at: https://sqlalche.me/e/14/4xp6)
+[2024-08-30T23:04:39.446+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-08-30T23:04:39.464+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-30T23:04:39.465+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=nyc_dag, task_id=prd_load, run_id=manual__2024-08-30T23:04:26.080768+00:00, execution_date=20240830T230426, start_date=20240830T230438, end_date=20240830T230439
+[2024-08-30T23:04:39.550+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-30T23:04:39.574+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-30T23:04:39.579+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

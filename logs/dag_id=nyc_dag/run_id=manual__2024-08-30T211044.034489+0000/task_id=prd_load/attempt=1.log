@@ -1,0 +1,99 @@
+[2024-08-30T21:11:11.628+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-30T21:11:11.683+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nyc_dag.prd_load manual__2024-08-30T21:10:44.034489+00:00 [queued]>
+[2024-08-30T21:11:11.720+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nyc_dag.prd_load manual__2024-08-30T21:10:44.034489+00:00 [queued]>
+[2024-08-30T21:11:11.724+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 0
+[2024-08-30T21:11:11.784+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): prd_load> on 2024-08-30 21:10:44.034489+00:00
+[2024-08-30T21:11:11.813+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1533) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-30T21:11:11.819+0000] {standard_task_runner.py:72} INFO - Started process 1535 to run task
+[2024-08-30T21:11:11.815+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nyc_dag', 'prd_load', 'manual__2024-08-30T21:10:44.034489+00:00', '--job-id', '219', '--raw', '--subdir', 'DAGS_FOLDER/nyc_dag_script.py', '--cfg-path', '/tmp/tmp9758wfip']
+[2024-08-30T21:11:11.825+0000] {standard_task_runner.py:105} INFO - Job 219: Subtask prd_load
+[2024-08-30T21:11:12.015+0000] {task_command.py:467} INFO - Running <TaskInstance: nyc_dag.prd_load manual__2024-08-30T21:10:44.034489+00:00 [running]> on host 107c7aa6860c
+[2024-08-30T21:11:12.448+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='tolutosin16@gmail.org' AIRFLOW_CTX_DAG_OWNER='tolu_samuel' AIRFLOW_CTX_DAG_ID='nyc_dag' AIRFLOW_CTX_TASK_ID='prd_load' AIRFLOW_CTX_EXECUTION_DATE='2024-08-30T21:10:44.034489+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-30T21:10:44.034489+00:00'
+[2024-08-30T21:11:12.454+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-30T21:11:12.518+0000] {connection.py:414} INFO - Snowflake Connector for Python Version: 3.12.0, Python Version: 3.12.5, Platform: Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[2024-08-30T21:11:12.525+0000] {connection.py:1187} INFO - Connecting to GLOBAL Snowflake domain
+[2024-08-30T21:11:12.527+0000] {connection.py:1268} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-08-30T21:11:15.143+0000] {logging_mixin.py:190} INFO - An error occurred during loading to production: (snowflake.connector.errors.DatabaseError) 250001 (08001): None: Failed to connect to DB: @mteopxr-yu26234.snowflakecomputing.com:443. Incorrect username or password was specified.
+(Background on this error at: https://sqlalche.me/e/14/4xp6)
+[2024-08-30T21:11:15.146+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-08-30T21:11:15.179+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-30T21:11:15.181+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=nyc_dag, task_id=prd_load, run_id=manual__2024-08-30T21:10:44.034489+00:00, execution_date=20240830T211044, start_date=20240830T211111, end_date=20240830T211115
+[2024-08-30T21:11:15.295+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-30T21:11:15.328+0000] {taskinstance.py:3916} ERROR - Error scheduling downstream tasks. Skipping it as this is entirely optional optimisation. There might be various reasons for it, please take a look at the stack trace to figure out if the root cause can be diagnosed and fixed. See the issue https://github.com/apache/***/issues/39717 for details and an example problem. If you would like to get help in solving root cause, open discussion with all details with your managed service support or in Airflow repository.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3912, in schedule_downstream_tasks
+    return TaskInstance._schedule_downstream_tasks(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3861, in _schedule_downstream_tasks
+    partial_dag = task.dag.partial_subset(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dag.py", line 2646, in partial_subset
+    t.task_id: _deepcopy_task(t)
+               ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dag.py", line 2643, in _deepcopy_task
+    return copy.deepcopy(t, memo)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 143, in deepcopy
+    y = copier(memo)
+        ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 1388, in __deepcopy__
+    setattr(result, k, copy.deepcopy(v, memo))
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 136, in deepcopy
+    y = copier(x, memo)
+        ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 221, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 136, in deepcopy
+    y = copier(x, memo)
+        ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 221, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 162, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 259, in _reconstruct
+    state = deepcopy(state, memo)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 136, in deepcopy
+    y = copier(x, memo)
+        ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 221, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 162, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 259, in _reconstruct
+    state = deepcopy(state, memo)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 136, in deepcopy
+    y = copier(x, memo)
+        ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 221, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 162, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 259, in _reconstruct
+    state = deepcopy(state, memo)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 136, in deepcopy
+    y = copier(x, memo)
+        ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 221, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/copy.py", line 151, in deepcopy
+    rv = reductor(4)
+         ^^^^^^^^^^^
+TypeError: cannot pickle 'module' object
+[2024-08-30T21:11:15.348+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
